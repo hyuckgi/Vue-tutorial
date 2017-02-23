@@ -1,13 +1,19 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view></router-view>
+    <Test msg="hello vue world"></Test>
+    <!-- <router-view></router-view> -->
+
   </div>
 </template>
 
 <script>
+import Test from './components/Test';
+
 export default {
-  name: 'app'
+  name: 'app',
+  components: {
+      Test
+  }
 }
 </script>
 
