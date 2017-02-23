@@ -1,5 +1,7 @@
 <template>
-    <div class="test">
+
+    <!-- v-cloak은 컴파일전 elements가 노출되는 현상을 막아준다..(FOUC를 막아줄까?) style도 적용-->
+    <div class="test" v-cloak>
         <!-- html을 render할때 -->
         <!-- <span v-html="title"></span> -->
         <h1>{{title}}</h1>
@@ -42,11 +44,17 @@
         <!-- 축약 -->
         <!-- <button type="button" @click="greet">Say Greeting</button> -->
         <br>
+
+
+        <!-- computed 메소드 -->
         <label>First Name : </label><input type="text" v-model="user.firstName">
         <br>
         <label>Last Name : </label><input type="text" v-model="user.lastName">
         <h3>{{fullName}}</h3>
         <h4>{{msg}}</h4>
+
+        <!-- 아까만든 사진의 smile 값을 변경해보지 -->
+        <button type="button" @click="smileChange">Smile Change</button>
     </div>
 </template>
 
@@ -90,6 +98,9 @@
             },
             enterHit: function() {
                 console.log("hit enter");
+            },
+            smileChange: function(){
+                return this.smile = !this.smile;
             }
         },
         computed: {
@@ -105,5 +116,8 @@
 <style scoped>
     .test{
         color:blue;
+    }
+    [v-cloak]{
+        display:none;
     }
 </style>
