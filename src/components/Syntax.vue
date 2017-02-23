@@ -53,7 +53,7 @@
 
 <script>
     export default {
-        name: 'Test',
+        name: 'Syntax',
         props: {
             msg: {
                 type: String,

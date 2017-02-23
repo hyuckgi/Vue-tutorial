@@ -1,18 +1,18 @@
 <template>
   <div id="app">
-    <Test msg="hello vue world"></Test>
+    <Syntax msg="hello vue world"></Syntax>
     <!-- <router-view></router-view> -->
 
   </div>
 </template>
 
 <script>
-import Test from './components/Test';
+import Syntax from './components/Syntax';
 
 export default {
   name: 'app',
   components: {
-      Test
+      Syntax
   }
 }
 </script>
