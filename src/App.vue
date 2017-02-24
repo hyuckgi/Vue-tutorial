@@ -3,7 +3,8 @@
       <ul class="main_btn">
           <li><router-link to="/">Syntax</router-link></li>
           <li><router-link to="/compute">Compute</router-link></li>
-          <li><router-link to="/class">Class</router-link></li>
+          <li><router-link to="/class">ClassBinding</router-link></li>
+          <li><router-link to="/style">StyleBinding</router-link></li>
       </ul>
       <router-view></router-view>
   </div>
@@ -13,11 +14,12 @@
 import Syntax from './components/Syntax';
 import Compute from './components/Compute';
 import ClassBinding from './components/ClassBinding';
+import StyleBinding from './components/StyleBinding';
 
 export default {
   name: 'app',
   components: {
-      Syntax, Compute, ClassBinding
+      Syntax, Compute, ClassBinding, StyleBinding
   }
 }
 </script>

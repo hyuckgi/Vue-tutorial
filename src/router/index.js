@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Syntax from 'components/Syntax'
 import ClassBinding from 'components/ClassBinding';
+import StyleBinding from 'components/StyleBinding';
 import Compute from 'components/Compute'
 
 Vue.use(Router)
@@ -23,6 +24,11 @@ export default new Router({
             path: '/class',
             name: 'class',
             component: ClassBinding
+        },
+        {
+            path: '/style',
+            name: 'style',
+            component: StyleBinding
         }
     ]
 });

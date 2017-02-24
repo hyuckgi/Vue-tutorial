@@ -9,14 +9,21 @@
         <div class="static" :class="{active: isActive, 'text-danger': hasError}"></div>
         <button type="button" @click="changeClass">changeClass</button>
 
-        <!-- 객체를 사용할 수도 있 -->
+        <!-- 객체를 사용할 수도 있다 -->
         <div class="static" :class="classObject"></div>
         <button type="button" @click="changeObj('active')">changeObj</button>
 
         <!-- 계산된 속성에도 바인딩 할 수 있다 -->
         <div class="static" :class="classObjBind"></div>
 
+        <!-- 배열을 전달하여 클래스 목록을 지정할 수 있다. -->
+        <div class="static"  :class="[activeClass, errorClass]"></div>
 
+        <!-- 목록에 있는 클래스를 조건부 토글하려면 삼항 연산자를 이용 -->
+        <div class="static" :class="[isActive ? activeClass : '', errorClass]"></div>
+
+        <!-- 갯수가 많으면 삼항연산자가 많아진다. 그래서 배열안에서 객체를 사용 -->
+        <div class="static" :class="[ {isActive : activeClass }, errorClass]"></div>
     </div>
 </template>
 
@@ -34,7 +41,9 @@ export default {
             },
             error: {
                 type: 'fetal'
-            }
+            },
+            activeClass: 'active',
+            errorClass: 'text-danger'
         }
     },
 
@@ -60,6 +69,7 @@ export default {
 <style lang="css">
 .static{
     height:200px;
+    margin-top:50px;
 }
 .active{
     background:red;
