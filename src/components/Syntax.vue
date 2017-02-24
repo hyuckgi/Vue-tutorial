@@ -20,6 +20,14 @@
 
         <!-- v-bind와 조건문을 동시에 쓸 수 있다. -->
         <img :src="smile? feelsgood : feelsbad" alt="">
+        <button type="button" :disabled="smile">dynamicButton</button>
+        <!-- id, class 도  attribute 이니께 쓸수있다.-->
+        <div :id="dynamicId">
+            <!-- static한 class는 따로 주면되는군 -->
+            <div :class="binding ? 'inner_bind' : 'inner_bind2'" class="box">
+
+            </div>
+        </div>
 
         <!-- for문 -->
         <ul>
@@ -41,6 +49,10 @@
         <br>
         <!-- event.target.value && submit -->
         <input type="text" v-on:keyup="pressKey" v-on:keyup.enter="enterHit">
+        <br>
+        <!-- enter는 수식어 -->
+        <input type="button" v-on:click.prevent="onSubmit" value="수식어 테스트">
+
         <!-- 축약 -->
         <!-- <button type="button" @click="greet">Say Greeting</button> -->
         <br>
@@ -55,6 +67,16 @@
 
         <!-- 아까만든 사진의 smile 값을 변경해보지 -->
         <button type="button" @click="smileChange">Smile Change</button>
+        <br>
+        <!-- 아까만든 v-bind에도 dynamic Class를 사용해보지 -->
+        <button type="button" @click="bindChange">Bind Change</button>
+        <br>
+
+        <!-- 아까만든 삼항조건식보다 더 dynamic한 Class를 사용해보지 -->
+        <div :id="rawId | formatId">
+
+        </div>
+
     </div>
 </template>
 
@@ -83,7 +105,10 @@
                 ],
                 feelsgood: 'https://imgh.us/feelsgood_1.jpg',
                 feelsbad: 'https://imgh.us/feelsbad.jpg',
-                smile: true
+                smile: true,
+                dynamicId : 'bind',
+                binding: true,
+                rawId: 'moreDynamicId'
             }
         },
         methods:{
@@ -101,11 +126,26 @@
             },
             smileChange: function(){
                 return this.smile = !this.smile;
+            },
+            bindChange: function(){
+                return this.binding = !this.binding;
+            },
+            onSubmit: function(){
+                return console.log("complete prevent");
             }
         },
         computed: {
             fullName: function(){
                 return this.user.firstName+ ' ' + this.user.lastName;
+            }
+        },
+        filters: {
+            formatId: function(value){
+                if(!value) return ""
+                value = value.toString();
+                return value.charAt(0).toUpperCase() + value.slice(1);
+                console.log(value);
+
             }
         }
 
@@ -119,5 +159,32 @@
     }
     [v-cloak]{
         display:none;
+    }
+    #bind{
+        position:relative;
+        width:200px;
+        height:200px;
+        background:red;
+    }
+
+    .box{
+        position:absolute;
+        top:50%;
+        left:50%;
+        width:50px;
+        height:50px;
+        transform:translate(-50%, -50%);
+    }
+    .inner_bind{
+        background:blue;
+    }
+    .inner_bind2{
+        background:black;
+    }
+
+    #MoreDynamicId{
+        width: 200px;
+        height: 200px;
+        background:pink;
     }
 </style>
