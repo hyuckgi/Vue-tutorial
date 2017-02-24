@@ -1,15 +1,22 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import Hello from 'components/Hello'
+import Syntax from 'components/Syntax'
+import Compute from 'components/Compute'
 
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'Hello',
-      component: Hello
-    }
-  ]
-})
+    mode: 'history',
+    routes: [
+        {
+            path: '/',
+            name: 'Syntax',
+            component: Syntax
+        },
+        {
+            path: '/compute',
+            name: 'Compute',
+            component: Compute
+        }
+    ]
+});
