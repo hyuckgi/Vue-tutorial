@@ -5,6 +5,7 @@
           <li><router-link to="/compute">Compute</router-link></li>
           <li><router-link to="/class">ClassBinding</router-link></li>
           <li><router-link to="/style">StyleBinding</router-link></li>
+          <li><router-link to="/condition">Condition</router-link></li>
       </ul>
       <router-view></router-view>
   </div>
@@ -15,11 +16,12 @@ import Syntax from './components/Syntax';
 import Compute from './components/Compute';
 import ClassBinding from './components/ClassBinding';
 import StyleBinding from './components/StyleBinding';
+import Condition from './components/Condition';
 
 export default {
   name: 'app',
   components: {
-      Syntax, Compute, ClassBinding, StyleBinding
+      Syntax, Compute, ClassBinding, StyleBinding, Condition
   }
 }
 </script>

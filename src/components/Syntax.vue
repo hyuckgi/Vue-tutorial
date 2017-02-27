@@ -8,6 +8,7 @@
         <p>{{user.firstName}}</p>
         <p v-text="user.lastName"></p>
 
+
         <!-- 조건문 -->
         <p v-if="showName">{{user.firstName}}</p>
         <p v-else>Nobody</p>

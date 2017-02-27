@@ -4,6 +4,7 @@ import Syntax from 'components/Syntax'
 import ClassBinding from 'components/ClassBinding';
 import StyleBinding from 'components/StyleBinding';
 import Compute from 'components/Compute'
+import Condition from 'components/Condition'
 
 Vue.use(Router)
 
@@ -29,6 +30,11 @@ export default new Router({
             path: '/style',
             name: 'style',
             component: StyleBinding
+        },
+        {
+            path: '/condition',
+            name: 'condition',
+            component: Condition
         }
     ]
 });
