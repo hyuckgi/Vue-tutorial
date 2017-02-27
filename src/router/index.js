@@ -5,6 +5,7 @@ import ClassBinding from 'components/ClassBinding';
 import StyleBinding from 'components/StyleBinding';
 import Compute from 'components/Compute'
 import Condition from 'components/Condition'
+import Listing from 'components/Listing'
 
 Vue.use(Router)
 
@@ -35,6 +36,11 @@ export default new Router({
             path: '/condition',
             name: 'condition',
             component: Condition
+        },
+        {
+            path: '/listing',
+            name: 'listing',
+            component: Listing
         }
     ]
 });
